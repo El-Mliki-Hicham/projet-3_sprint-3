@@ -14,8 +14,8 @@ class PromotionController extends Controller
      */
     public function index()
     {
-        $test = "test";
-        return view('Promotion.index',compact("test"));
+        $promotion = Promotion::all();
+        return view('Promotion.index',compact("promotion"));
     }
 
     /**
@@ -37,7 +37,12 @@ class PromotionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $promotion = New Promotion();
+        $promotion->Name_promotion =$request->Name;
+        $promotion->save();
+        if ($promotion->save()) {
+            return redirect("promotion");
+        }
     }
 
     /**
@@ -59,8 +64,8 @@ class PromotionController extends Controller
      */
     public function edit(Promotion $promotion)
     {
-        $test = "test";
-        return view('Promotion.edit',compact("test"));
+        $promotion = Promotion::find($promotion);
+        return view('Promotion.edit',compact("promotion"));
     }
 
     /**
@@ -72,7 +77,14 @@ class PromotionController extends Controller
      */
     public function update(Request $request, Promotion $promotion)
     {
-        //
+
+      $promotion=  Promotion::find($promotion->id)
+        ->update([
+            'Name_promotion'=>$request->Name
+        ]);
+        return redirect("promotion");
+
+
     }
 
     /**
@@ -83,6 +95,7 @@ class PromotionController extends Controller
      */
     public function destroy(Promotion $promotion)
     {
-        //
+        Promotion::find($promotion->id)->delete();
+        return back();
     }
 }
