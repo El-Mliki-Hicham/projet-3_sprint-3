@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tasks;
+use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
 
 class TasksController extends Controller
@@ -13,7 +15,8 @@ class TasksController extends Controller
      */
     public function index()
     {
-        //
+        $task = Tasks::all();
+        return view("Task.index",compact("task"));
     }
 
     /**
@@ -23,7 +26,7 @@ class TasksController extends Controller
      */
     public function create()
     {
-        //
+        return view("Task.create");
     }
 
     /**
@@ -34,7 +37,11 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task = new Tasks();
+        $task->Task = $request->task;
+        $task->students_id = "";
+        $task->save();
+        return redirect("task");
     }
 
     /**
@@ -56,7 +63,9 @@ class TasksController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $task= Tasks::find($id);
+        return view("task.edit",compact('task'));
     }
 
     /**
@@ -68,7 +77,10 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = Tasks::find($id);
+        $task->Task=$request->task;
+        $task->save();
+        return redirect("task");
     }
 
     /**
@@ -79,6 +91,7 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $task = Tasks::find($id)->delete();
+        return back();
     }
 }

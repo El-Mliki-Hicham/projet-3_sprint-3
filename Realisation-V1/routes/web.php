@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\TasksController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,4 @@ Route::get('/', function () {
 
 
 Route::resource('promotion', PromotionController::class);
+Route::resource('task', TasksController::class);
