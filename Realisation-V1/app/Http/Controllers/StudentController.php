@@ -14,7 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-
+        $student = Student::all();
+        return view("Student.index",compact("student"));
     }
 
     /**
@@ -24,7 +25,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view("Student.create");
     }
 
     /**
@@ -35,7 +36,14 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $student = new Student();
+        $student->First_name = $request->First_name;
+        $student->Last_name = $request->Last_name;
+        $student->Email = $request->Email;
+        $student->promotion_id = '';
+        $student->save();
+        return redirect('student');
+
     }
 
     /**
@@ -57,7 +65,9 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+
+        $student = Student::find($student->id);
+        return view("Student.edit",compact("student"));
     }
 
     /**
@@ -69,7 +79,13 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $student =Student::find($student->id);
+        $student->First_name = $request->First_name;
+        $student->Last_name = $request->Last_name;
+        $student->Email = $request->Email;
+
+        $student->save();
+        return redirect('student');
     }
 
     /**
@@ -80,6 +96,7 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $student =Student::find($student->id)->delete();
+        return back();
     }
 }
