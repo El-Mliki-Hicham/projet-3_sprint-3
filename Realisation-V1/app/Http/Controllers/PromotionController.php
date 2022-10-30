@@ -14,7 +14,7 @@ class PromotionController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
