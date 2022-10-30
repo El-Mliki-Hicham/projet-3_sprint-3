@@ -14,7 +14,8 @@ class PromotionController extends Controller
      */
     public function index()
     {
-        
+        $test = "test";
+        return view('Promotion.index',compact("test"));
     }
 
     /**
@@ -24,7 +25,8 @@ class PromotionController extends Controller
      */
     public function create()
     {
-        //
+        $test = "test";
+        return view('Promotion.create',compact("test"));
     }
 
     /**
@@ -57,7 +59,8 @@ class PromotionController extends Controller
      */
     public function edit(Promotion $promotion)
     {
-        //
+        $test = "test";
+        return view('Promotion.edit',compact("test"));
     }
 
     /**
