@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string("Nom de la tâche")->nullable();
+            $table->string("Début de la tâche")->default("null");
+            $table->string("Fin de la tâche")->default("null");
+            $table->string("briefs-id")->nullable();
         });
     }
 

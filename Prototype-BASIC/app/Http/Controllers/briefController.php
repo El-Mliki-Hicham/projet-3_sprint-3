@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\tasks;
 use Illuminate\Http\Request;
 
-class TasksController extends Controller
+class briefController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +40,10 @@ class TasksController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\tasks  $tasks
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(tasks $tasks)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class TasksController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\tasks  $tasks
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(tasks $tasks)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class TasksController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\tasks  $tasks
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tasks $tasks)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class TasksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\tasks  $tasks
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tasks $tasks)
+    public function destroy($id)
     {
         //
     }
