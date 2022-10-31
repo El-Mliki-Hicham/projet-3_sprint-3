@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Briefs;
 use Illuminate\Http\Request;
 
 class briefController extends Controller
@@ -13,7 +14,8 @@ class briefController extends Controller
      */
     public function index()
     {
-        
+        $brief = Briefs::all();
+        return view("brief.index",compact("brief"));
     }
 
     /**
@@ -23,7 +25,7 @@ class briefController extends Controller
      */
     public function create()
     {
-        //
+        return view("brief.create");
     }
 
     /**
@@ -34,7 +36,13 @@ class briefController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $brief =new Briefs();
+        $brief->Nom_du_brief = $request->Nom ;
+        $brief->Date_heure_de_livraison =$request->Date_livraison ;
+        $brief->Date_heure_de_récupération=$request->Date_recuperation ;
+        $brief->save();
+        return redirect('brief');
     }
 
     /**
@@ -56,7 +64,8 @@ class briefController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brief = Briefs::find($id);
+        return view("brief.edit",compact("brief"));
     }
 
     /**
@@ -68,7 +77,13 @@ class briefController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $brief =Briefs::find($id);
+        $brief->Nom_du_brief = $request->Nom ;
+        $brief->Date_heure_de_livraison =$request->Date_livraison ;
+        $brief->Date_heure_de_récupération=$request->Date_recuperation ;
+        $brief->save();
+        return redirect('brief');
     }
 
     /**
@@ -79,6 +94,7 @@ class briefController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brief =Briefs::find($id)->delete();
+        return redirect('brief');
     }
 }

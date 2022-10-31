@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string("Nom de la tâche")->nullable();
-            $table->string("Début de la tâche")->default("null");
-            $table->string("Fin de la tâche")->default("null");
+            $table->string("Nom_de_la_tâche")->nullable();
+            $table->string("Début_de_la_tâche")->default("null");
+            $table->string("Fin_de_la_tâche")->default("null");
             $table->string("briefs-id")->nullable();
         });
     }
