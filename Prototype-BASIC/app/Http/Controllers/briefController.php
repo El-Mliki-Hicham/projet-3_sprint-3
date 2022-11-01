@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Briefs;
 use Illuminate\Http\Request;
 
-class briefController extends Controller
+class briefController
 {
     /**
      * Display a listing of the resource.
