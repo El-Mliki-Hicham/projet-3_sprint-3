@@ -65,6 +65,7 @@ class briefController extends Controller
     public function edit($id)
     {
         $brief = Briefs::find($id);
+        // dd($brief);
         return view("brief.edit",compact("brief"));
     }
 
