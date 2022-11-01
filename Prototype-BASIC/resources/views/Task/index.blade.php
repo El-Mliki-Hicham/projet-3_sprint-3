@@ -25,7 +25,6 @@
             <td>{{$item->Début_de_la_tâche}}</td>
             <td>{{$item->Fin_de_la_tâche}}</td>
             <td>
-                <a href="{{route('task.edit',$item->id)}}">Edit</a>
 
                 <form action="{{route('task.destroy',$item->id)}}" method="POST">
                     @method("DELETE")
