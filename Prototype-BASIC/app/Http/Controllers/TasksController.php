@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Briefs;
 use App\Models\tasks;
+use Egulias\EmailValidator\Warning\TLD;
 use Illuminate\Http\Request;
 
-class TasksController extends Controller
+class TasksController
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        
+        $id = $request->brief_id;
+        $task = Briefs::find($id)->Tasks;
+
+        return view("task.index",compact("task","id"));
     }
 
     /**
@@ -22,9 +27,12 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        $id = $request->brief_id;
+
+        return view("task.create",compact("id"));
     }
 
     /**
@@ -35,7 +43,15 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $task = new Tasks();
+        $task->Nom_de_la_tâche = $request->task;
+        $task->Début_de_la_tâche= $request->date_debut;
+        $task->Fin_de_la_tâche= $request->date_fin ;
+        $task->briefs_id= $request->id_brief ;
+        $task->save();
+        return redirect('brief');
     }
 
     /**
@@ -55,9 +71,10 @@ class TasksController extends Controller
      * @param  \App\Models\tasks  $tasks
      * @return \Illuminate\Http\Response
      */
-    public function edit(tasks $tasks)
+    public function edit($id)
     {
-        //
+        $task = Tasks::find($id);
+        return view("task.edit",compact("task"));
     }
 
     /**
@@ -67,9 +84,17 @@ class TasksController extends Controller
      * @param  \App\Models\tasks  $tasks
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tasks $tasks)
+
+    public function update(Request $request,$id)
     {
-        //
+
+        $task =Tasks::find($id);
+        $task->Nom_de_la_tâche = $request->task;
+        $task->Début_de_la_tâche= $request->date_debut;
+        $task->Fin_de_la_tâche= $request->date_fin ;
+        $task->briefs_id= $request->id_brief ;
+        $task->save();
+        return redirect('task');
     }
 
     /**
@@ -78,8 +103,11 @@ class TasksController extends Controller
      * @param  \App\Models\tasks  $tasks
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tasks $tasks)
+    public function destroy($id)
     {
-        //
+        Tasks::find($id)
+        ->delete();
+
+        return redirect('task');
     }
 }

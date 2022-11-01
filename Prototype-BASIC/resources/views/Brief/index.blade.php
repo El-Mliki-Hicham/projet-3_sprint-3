@@ -30,6 +30,21 @@
                     <button>delete</button>
                 </form>
             </td>
+            <td>
+            <form action="{{route('task.create')}}" method="get">
+                <input name="brief_id" value="{{$item->id}}" type="hidden">
+
+                <button>add task</button>
+            </form>
+            <td>
+
+            <td>
+                <form action="{{route('task.index')}}" method="get">
+                    <input name="brief_id" value="{{$item->id}}" type="hidden">
+
+                    <button>show task</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>
