@@ -86,7 +86,7 @@ class briefController
         $brief->Date_heure_de_livraison =$request->Date_livraison ;
         $brief->Date_heure_de_récupération=$request->Date_recuperation ;
         $brief->save();
-        return redirect('brief');
+        return redirect('brief/'.$id.'/edit');
     }
 
     /**
