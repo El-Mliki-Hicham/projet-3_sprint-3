@@ -23,7 +23,7 @@
             <td>{{$item->Date_heure_de_récupération}}</td>
             <td>
                 <a href="{{route('brief.edit',$item->id)}}"><button>Edit</button></a>
-            </td>
+                </td>
             <td>
                 <form action="{{route('brief.destroy',$item->id)}}" method="POST">
                     @method("DELETE")
@@ -31,21 +31,9 @@
                     <button>delete</button>
                 </form>
             </td>
-            <td>
-            <form action="{{route('task.create')}}" method="get">
-                <input name="brief_id" value="{{$item->id}}" type="hidden">
 
-                <button>add task</button>
-            </form>
-            <td>
 
-            <td>
-                <form action="{{route('task.index')}}" method="get">
-                    <input name="brief_id" value="{{$item->id}}" type="hidden">
 
-                    <button>show task</button>
-                </form>
-            </td>
         </tr>
         @endforeach
     </tbody>

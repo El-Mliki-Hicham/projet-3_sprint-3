@@ -65,8 +65,10 @@ class briefController
     public function edit($id)
     {
         $brief = Briefs::find($id);
+        $task = Briefs::find($id)->Tasks;
+
         // dd($brief);
-        return view("brief.edit",compact("brief"));
+        return view("brief.edit",compact("brief","task","id"));
     }
 
     /**

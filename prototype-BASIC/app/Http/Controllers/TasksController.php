@@ -51,7 +51,7 @@ class TasksController
         $task->Fin_de_la_tâche= $request->date_fin ;
         $task->briefs_id= $request->id_brief ;
         $task->save();
-        return redirect('brief');
+        return redirect('brief/'.$request->id_brief.'/edit' );
     }
 
     /**
@@ -74,7 +74,10 @@ class TasksController
     public function edit($id)
     {
         $task = Tasks::find($id);
-        return view("task.edit",compact("task"));
+        $brief_id = $task->briefs_id;
+
+
+        return view("task.edit",compact("task","brief_id"));
     }
 
     /**
@@ -92,9 +95,8 @@ class TasksController
         $task->Nom_de_la_tâche = $request->task;
         $task->Début_de_la_tâche= $request->date_debut;
         $task->Fin_de_la_tâche= $request->date_fin ;
-        $task->briefs_id= $request->id_brief ;
         $task->save();
-        return redirect('task');
+        return redirect('brief/'.$request->brief_id.'/edit' );
     }
 
     /**
@@ -109,6 +111,6 @@ class TasksController
         Tasks::find($id)
         ->delete();
 
-        return redirect('task?brief_id='.$brief_id);
+        return redirect('brief/'.$brief_id.'/edit' );
     }
 }
