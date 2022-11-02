@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("Nom_de_la_tâche")->nullable();
             $table->string("Début_de_la_tâche")->default("null");
             $table->string("Fin_de_la_tâche")->default("null");
-            $table->string("briefs_id")->nullable();
+            $table->string("briefs_id")->default('null');
         });
     }
 

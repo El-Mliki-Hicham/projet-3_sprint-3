@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("Nom_du_brief")->nullable();
             $table->string("Date_heure_de_livraison")->default('null');
             $table->string("Date_heure_de_récupération")->default('null');
+            $table->string("promotions_id")->default('null');
         });
     }
 
