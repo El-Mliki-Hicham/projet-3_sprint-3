@@ -28,6 +28,8 @@
 
                 <form action="{{route('task.destroy',$item->id)}}" method="POST">
                     @method("DELETE")
+                    <input type="hidden" value="{{$id}}" name="brief_id">
+
                     @csrf
                     <button>delete</button>
                 </form>

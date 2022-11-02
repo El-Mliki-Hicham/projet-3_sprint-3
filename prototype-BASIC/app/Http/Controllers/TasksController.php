@@ -103,11 +103,12 @@ class TasksController
      * @param  \App\Models\tasks  $tasks
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( Request $request ,$id )
     {
+       $brief_id= $request->brief_id;
         Tasks::find($id)
         ->delete();
 
-        return redirect('task');
+        return redirect('task?brief_id='.$brief_id);
     }
 }
