@@ -32,7 +32,7 @@
             </td>
 
             <td>
-                <button>  <a href="{{route('brief.assigner')}}">assigner</a></button>
+                <button>  <a href="{{route('brief.assigner',$item->id)}}">assigner</a></button>
 
             </td>
 

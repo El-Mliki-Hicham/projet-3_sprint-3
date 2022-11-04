@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Briefs;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class briefController
@@ -100,11 +101,15 @@ class briefController
     }
 
 
-    public function assigner (){
+    public function assigner ($id){
         $studentController =new StudentController;
         $AllStudent = $studentController->index()->student;
 
+        $brief_student = Briefs::find($id);
+        dd($brief_student->Student);
 
         return view('Brief.assigner',compact("AllStudent"));
     }
+
+
 }
