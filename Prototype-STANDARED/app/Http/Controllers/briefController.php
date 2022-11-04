@@ -98,4 +98,13 @@ class briefController
         $brief =Briefs::find($id)->delete();
         return redirect('brief');
     }
+
+
+    public function assigner (){
+        $studentController =new StudentController;
+        $AllStudent = $studentController->index()->student;
+
+
+        return view('Brief.assigner',compact("AllStudent"));
+    }
 }

@@ -11,11 +11,6 @@
 </form>
 
 
-<form action="{{route('task.create')}}" method="get">
-    <input name="brief_id" value="{{$brief->id}}" type="hidden">
-
-    <button>add task</button>
-</form>
 
 
 <a href="{{route("brief.index")}}"><button>return</button></a>

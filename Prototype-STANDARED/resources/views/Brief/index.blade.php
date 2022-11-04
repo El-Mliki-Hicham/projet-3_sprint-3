@@ -31,6 +31,11 @@
                 </form>
             </td>
 
+            <td>
+                <button>  <a href="{{route('brief.assigner')}}">assigner</a></button>
+
+            </td>
+
         </tr>
         @endforeach
     </tbody>
