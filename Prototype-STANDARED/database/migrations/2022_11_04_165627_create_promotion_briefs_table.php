@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('briefs', function (Blueprint $table) {
+        Schema::create('promotion_briefs', function (Blueprint $table) {
             $table->id();
-            $table->string("Nom_du_brief")->nullable();
-            $table->string("Date_heure_de_livraison")->default('null');
-            $table->string("Date_heure_de_récupération")->default('null');
+            $table->integer("promotion_id");
+            $table->integer("brief_id");
+            $table->foreign('promotion_id')->references('id')->on('promotions')->onDelete('cascade');
+            $table->foreign('brief_id')->references('id')->on('briefs')->onDelete('cascade');
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('briefs');
+        Schema::dropIfExists('promotion_briefs');
     }
 };
