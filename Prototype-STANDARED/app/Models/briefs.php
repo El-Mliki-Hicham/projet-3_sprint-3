@@ -23,6 +23,7 @@ class Briefs extends Model
     }
 
     public function Student(){
-        return $this->belongsToMany(Student::class);
+        return $this->belongsToMany(Student::class)
+        ->leftJoin('briefs_student', 'students.id', '=', 'briefs_student.student_id');
     }
 }

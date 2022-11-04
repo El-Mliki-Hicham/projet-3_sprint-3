@@ -106,9 +106,12 @@ class briefController
         $AllStudent = $studentController->index()->student;
 
         $brief_student = Briefs::find($id);
-        dd($brief_student->Student);
 
-        return view('Brief.assigner',compact("AllStudent"));
+
+        $brief_student = $brief_student->Student;
+        dd($brief_student);
+
+        return view('Brief.assigner',compact("AllStudent",'brief_student'));
     }
 
 
