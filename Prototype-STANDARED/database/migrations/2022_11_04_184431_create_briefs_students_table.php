@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('briefs_students', function (Blueprint $table) {
             $table->id();
-            $table->integer("promotion_id");
+            $table->integer("student_id");
             $table->integer("brief_id");
-            $table->foreign('promotion_id')->references('id')->on('promotions')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->foreign('brief_id')->references('id')->on('briefs')->onDelete('cascade');
         });
     }
