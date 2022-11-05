@@ -33,7 +33,10 @@
             </td>
 
 
+            <td>
+                <button>  <a href="{{route('assigner.show',$item->id)}}">assigner</a></button>
 
+            </td>
         </tr>
         @endforeach
     </tbody>

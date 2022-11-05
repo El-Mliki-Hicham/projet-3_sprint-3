@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AssignerController;
 use App\Http\Controllers\briefController;
+use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TasksController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +23,11 @@ Route::get('/', function () {
 });
 
 Route::resource('brief',briefController::class);
+
+
+Route::resource('student',StudentController::class);
+Route::resource('assigner',AssignerController::class);
+
+
+Route::resource('promotion',PromotionController::class);
 Route::resource('task',TasksController::class);

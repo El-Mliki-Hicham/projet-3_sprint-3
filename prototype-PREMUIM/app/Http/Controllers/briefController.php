@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Briefs;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class briefController
@@ -65,8 +66,10 @@ class briefController
     public function edit($id)
     {
         $brief = Briefs::find($id);
+        $task = Briefs::find($id)->Tasks;
+
         // dd($brief);
-        return view("brief.edit",compact("brief"));
+        return view("brief.edit",compact("brief","task","id"));
     }
 
     /**
@@ -84,7 +87,7 @@ class briefController
         $brief->Date_heure_de_livraison =$request->Date_livraison ;
         $brief->Date_heure_de_récupération=$request->Date_recuperation ;
         $brief->save();
-        return redirect('brief');
+        return redirect('brief/'.$id.'/edit');
     }
 
     /**
@@ -98,4 +101,20 @@ class briefController
         $brief =Briefs::find($id)->delete();
         return redirect('brief');
     }
+
+
+    public function assigner ($id){
+        $studentController =new StudentController;
+        $AllStudent = $studentController->index()->student;
+
+        $brief_student = Briefs::find($id);
+
+
+        $brief_student = $brief_student->Student;
+        // dd($brief_student);
+
+        return view('Brief.assigner',compact("AllStudent",'brief_student',"id"));
+    }
+
+
 }

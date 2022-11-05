@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\assigner;
+use App\Models\Briefs;
 use Illuminate\Http\Request;
 
 class AssignerController
@@ -49,9 +50,19 @@ class AssignerController
      * @param  \App\Models\assigner  $assigner
      * @return \Illuminate\Http\Response
      */
-    public function show(assigner $assigner)
+    public function show($id)
     {
-        //
+
+        $studentController =new StudentController;
+        $AllStudent = $studentController->index()->student;
+
+        $brief_student = Briefs::find($id);
+
+
+        $brief_student = $brief_student->Student;
+        // dd($brief_student);
+
+        return view('Brief.assigner',compact("AllStudent",'brief_student',"id"));
     }
 
     /**
