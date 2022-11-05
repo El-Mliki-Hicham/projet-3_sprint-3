@@ -8,5 +8,5 @@
 </form>
 
 
-<a href="{{route("brief.index")}}"><button>return</button></a>
+<a href="{{route("brief.edit",$id)}}"><button>return</button></a>
 
