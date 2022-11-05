@@ -40,7 +40,7 @@ class StudentController
         $student->First_name = $request->First_name;
         $student->Last_name = $request->Last_name;
         $student->Email = $request->Email;
-        $student->promotion_id = '';
+        $student->promotions_id = '';
         $student->save();
         return redirect('student');
 
