@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssignerController;
 use App\Http\Controllers\briefController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TasksController;
@@ -31,3 +32,4 @@ Route::get('brief/assigner/{id}',[briefController::class,'assigner'])->name('bri
 
 
 Route::resource('student',StudentController::class);
+Route::resource('assigner',AssignerController::class);

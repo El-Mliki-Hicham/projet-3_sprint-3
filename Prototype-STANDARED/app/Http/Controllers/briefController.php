@@ -109,9 +109,9 @@ class briefController
 
 
         $brief_student = $brief_student->Student;
-        dd($brief_student);
+        // dd($brief_student);
 
-        return view('Brief.assigner',compact("AllStudent",'brief_student'));
+        return view('Brief.assigner',compact("AllStudent",'brief_student',"id"));
     }
 
 
