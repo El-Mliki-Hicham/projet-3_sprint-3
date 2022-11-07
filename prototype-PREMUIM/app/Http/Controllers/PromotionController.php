@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\assigner;
+use App\Models\Briefs;
 use App\Models\Promotion;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class PromotionController
@@ -64,13 +67,14 @@ class PromotionController
      */
     public function edit(Promotion $promotion)
     {
-    $id = $promotion->id;
-
+        $id = $promotion->id;
 
         $promotion = Promotion::find($promotion->id);
-         $student =$promotion->Student;
+        $student =$promotion->Student;
 
-        return view('Promotion.edit',compact("promotion","student","id"));
+        $brief =assigner::where('promotion_id',$id)->get();
+        // dd($brief);
+        return view('Promotion.edit',compact("promotion","student","id",'brief'));
     }
 
     /**

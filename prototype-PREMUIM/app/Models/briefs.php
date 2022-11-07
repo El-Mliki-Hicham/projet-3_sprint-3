@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Briefs extends Model
 {
     use HasFactory;
-
+    protected $table = "briefs";
     public $timestamps= false;
     protected $fillable = [
         'Nom du brief',

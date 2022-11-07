@@ -43,6 +43,7 @@
                 <form action="{{route("assigner.store")}}" method="post">
                     @csrf
                     <input type="hidden" value="{{$item->id}}" name="student_id">
+                    <input type="hidden" value="{{$item->promotion_id}}" name="promotion_id">
                     <input type="hidden" value="{{$id}}" name="brief_id">
                     <input type="submit" value="+">
                 </form>

@@ -43,5 +43,14 @@
     @endforeach
     </tbody>
 </table>
+<table>
+    <tbody>
+        @foreach ($brief as $value )
+        <tr>
+        <td>{{$value->briefs_id}}</td>
+    </tr>
+        @endforeach
+    </tbody>
+</table>
 
 <button><a href="{{route('promotion.index')}} ">return</a></button>

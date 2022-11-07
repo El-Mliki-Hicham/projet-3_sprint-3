@@ -17,7 +17,7 @@ class Student extends Model
 
     public $timestamps=false;
 
-    public function Briefs(){
+    public function briefs(){
         return $this->belongsToMany(Briefs::class);
     }
 }
