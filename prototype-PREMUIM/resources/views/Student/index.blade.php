@@ -1,5 +1,5 @@
 
-<a href="{{route("student.create")}}"><button>add new</button></a>
+
 <table>
     <thead>
         <tr>

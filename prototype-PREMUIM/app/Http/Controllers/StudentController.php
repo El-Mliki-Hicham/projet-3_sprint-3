@@ -23,9 +23,9 @@ class StudentController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view("Student.create");
+        return view("Student.create",compact("id"));
     }
 
     /**
@@ -36,13 +36,14 @@ class StudentController
      */
     public function store(Request $request)
     {
+        $promotion_id= $request->promotion_id;
         $student = new Student();
         $student->First_name = $request->First_name;
         $student->Last_name = $request->Last_name;
         $student->Email = $request->Email;
-        $student->promotion_id = '';
+        $student->promotion_id = $promotion_id;
         $student->save();
-        return redirect('student');
+        return redirect('promotion/'.$promotion_id.'/edit');
 
     }
 
@@ -63,10 +64,11 @@ class StudentController
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit($id)
     {
 
-        $student = Student::find($student->id);
+
+        $student = Student::find($id);
         return view("Student.edit",compact("student"));
     }
 
@@ -77,15 +79,15 @@ class StudentController
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request,$id)
     {
-        $student =Student::find($student->id);
+        $student =Student::find($id);
         $student->First_name = $request->First_name;
         $student->Last_name = $request->Last_name;
         $student->Email = $request->Email;
 
         $student->save();
-        return redirect('student');
+        return redirect('promotion/'.$request->promotion_id.'/edit');
     }
 
     /**
@@ -94,9 +96,9 @@ class StudentController
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy($id)
     {
-        $student =Student::find($student->id)->delete();
+        $student =Student::find($id)->delete();
         return back();
     }
 }

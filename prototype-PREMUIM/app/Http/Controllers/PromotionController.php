@@ -64,8 +64,13 @@ class PromotionController
      */
     public function edit(Promotion $promotion)
     {
-        $promotion = Promotion::find($promotion);
-        return view('Promotion.edit',compact("promotion"));
+    $id = $promotion->id;
+
+
+        $promotion = Promotion::find($promotion->id);
+         $student =$promotion->Student;
+
+        return view('Promotion.edit',compact("promotion","student","id"));
     }
 
     /**

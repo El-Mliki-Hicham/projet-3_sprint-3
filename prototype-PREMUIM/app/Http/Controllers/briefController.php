@@ -102,19 +102,4 @@ class briefController
         return redirect('brief');
     }
 
-
-    public function assigner ($id){
-        $studentController =new StudentController;
-        $AllStudent = $studentController->index()->student;
-
-        $brief_student = Briefs::find($id);
-
-
-        $brief_student = $brief_student->Student;
-        // dd($brief_student);
-
-        return view('Brief.assigner',compact("AllStudent",'brief_student',"id"));
-    }
-
-
 }
