@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('briefs_students', function (Blueprint $table) {
+        Schema::create('briefs_student', function (Blueprint $table) {
             $table->id();
-            $table->integer("student_id");
-            $table->integer("brief_id");
+            $table->unsignedInteger("briefs_id");
+            $table->unsignedInteger("student_id");
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->foreign('brief_id')->references('id')->on('briefs')->onDelete('cascade');
         });

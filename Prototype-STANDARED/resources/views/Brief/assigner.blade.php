@@ -54,7 +54,11 @@
 
     </tbody>
 
+
 </table>
+
+<button>
+    <a href="{{route('brief.index')}}">return</a></button>
 
 
 

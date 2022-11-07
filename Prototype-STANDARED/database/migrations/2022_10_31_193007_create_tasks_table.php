@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tasks', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string("Nom_de_la_tâche")->nullable();
             $table->string("Début_de_la_tâche")->default("null");
             $table->string("Fin_de_la_tâche")->default("null");

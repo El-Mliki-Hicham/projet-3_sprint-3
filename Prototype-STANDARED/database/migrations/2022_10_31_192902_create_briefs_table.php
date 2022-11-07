@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('briefs', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string("Nom_du_brief")->nullable();
             $table->string("Date_heure_de_livraison")->default('null');
             $table->string("Date_heure_de_récupération")->default('null');
