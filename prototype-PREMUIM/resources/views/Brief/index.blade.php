@@ -1,6 +1,7 @@
 
+@include("welcome")
 
-<a href="{{route("brief.create")}}"><button>add</button></a>
+<br><br><a href="{{route("brief.create")}}"><button>add brief</button></a>
 
 <table>
     <thead>

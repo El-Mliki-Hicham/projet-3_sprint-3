@@ -1,5 +1,6 @@
-
-<a href="{{route("promotion.create")}}"><button>add new</button></a>
+@include("welcome")
+<br><br>
+<a href="{{route("promotion.create")}}"><button>add promotion</button></a>
 <table>
     <thead>
         <tr>
