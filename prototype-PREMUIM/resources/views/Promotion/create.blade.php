@@ -1,4 +1,4 @@
-
+@include("layouts.head")
 
 <form method="POST" action="{{route("promotion.store")}}">
     @csrf

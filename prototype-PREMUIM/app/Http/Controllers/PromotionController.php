@@ -72,9 +72,7 @@ class PromotionController
         $promotion = Promotion::find($promotion->id);
         $student =$promotion->Student;
 
-        $brief =assigner::where('promotion_id',$id)->get();
-        // dd($brief);
-        return view('Promotion.edit',compact("promotion","student","id",'brief'));
+        return view('Promotion.edit',compact("promotion","student","id"));
     }
 
     /**
@@ -91,7 +89,7 @@ class PromotionController
         ->update([
             'Name_promotion'=>$request->Name
         ]);
-        return redirect("promotion");
+        return back();
 
 
     }

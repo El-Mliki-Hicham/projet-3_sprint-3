@@ -1,3 +1,4 @@
+@include("layouts.head")
 
 
 
@@ -10,9 +11,11 @@
 </form>
 
 
-<button><a href="{{route('student.create',$id)}}">add student</a></button>
+<button class="btn btn-primary" ><a href="{{route('student.create',$id)}}" style="color: white">add student</a></button>
+<br>
+<br>
 
-<table>
+<table class="table-bordered">
     <thead>
         <tr>
             <th>Id</th>
@@ -31,26 +34,18 @@
             <td>{{$item->Last_name}}</td>
             <td>{{$item->Email}}</td>
             <td>{{$item->promotion_id}}</td>
-            <td><a href="{{route("student.edit",$item->id)}}">Edit</a></td>
-            <td>
+            <td class="d-flex"><a href="{{route("student.edit",$item->id)}}" class="btn btn-success">Edit</a>
+
             <form action="{{route("student.destroy",$item->id)}}" method='post'>
                 @method("DELETE")
                 @csrf
-           <button> Delete</button>
+           <button class="btn btn-danger" > Delete</button>
         </form>
         </td>
         </tr>
     @endforeach
     </tbody>
 </table>
-<table>
-    <tbody>
-        @foreach ($brief as $value )
-        <tr>
-        <td>{{$value->briefs_id}}</td>
-    </tr>
-        @endforeach
-    </tbody>
-</table>
+
 
 <button><a href="{{route('promotion.index')}} ">return</a></button>

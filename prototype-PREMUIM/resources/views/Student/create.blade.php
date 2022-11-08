@@ -1,3 +1,4 @@
+@include("layouts.head")
 
 
 <form method="POST" action="{{route("student.store")}}">

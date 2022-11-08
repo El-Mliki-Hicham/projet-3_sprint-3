@@ -1,3 +1,5 @@
+@include("layouts.head")
+
 <form action="{{route("task.store")}}" method="post">
     @csrf
      nom  task<input  name="task" type="text">

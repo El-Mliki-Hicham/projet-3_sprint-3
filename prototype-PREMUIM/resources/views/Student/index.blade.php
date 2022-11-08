@@ -1,6 +1,7 @@
+@include("layouts.head")
 
 
-<table>
+<table class='table-bordered'>
     <thead>
         <tr>
             <th>Id</th>

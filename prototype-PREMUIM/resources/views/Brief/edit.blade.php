@@ -1,4 +1,6 @@
 
+@include("layouts.head")
+
 
 
 <form action="{{route("brief.update",$brief->id)}}" method="post">
@@ -17,7 +19,7 @@
     <button>add task</button>
 </form>
 
-<table>
+<table class="table">
     <thead>
         <tr>
 
@@ -39,7 +41,7 @@
             <td>
 
                 <a href="{{route('task.edit',$item->id)}}"><button>Edit</button></a>
-                
+
                 <form action="{{route('task.destroy',$item->id)}}" method="POST">
                     @method("DELETE")
                     <input type="hidden" value="{{$id}}" name="brief_id">
