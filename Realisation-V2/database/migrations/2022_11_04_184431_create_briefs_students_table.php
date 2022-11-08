@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('briefs_student', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger("briefs_id");
-            $table->unsignedInteger("student_id");
+            $table->unsignedInteger("briefs_id")->nullable();
+            $table->unsignedInteger("student_id")->nullable();
+            $table->unsignedInteger("promotion_id")->nullable();
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->foreign('briefs_id')->references('id')->on('briefs')->onDelete('cascade');
         });

@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string("Nom_de_la_tâche")->nullable();
-            $table->string("Début_de_la_tâche");
-            $table->string("Fin_de_la_tâche");
-            $table->string("Description");
+            $table->string("Nom_de_la_tache")->nullable();
+            $table->timestamp("Debut_de_la_tache")->nullable();
+            $table->timestamp("Fin_de_la_tache")->nullable();
+            $table->string("Description")->nullable();
             $table->unsignedInteger("briefs_id");
             $table->foreign("briefs_id")
             ->references("id")

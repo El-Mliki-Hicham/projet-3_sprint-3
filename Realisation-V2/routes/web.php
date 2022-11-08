@@ -22,6 +22,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/test',[PromotionController::class,'edit']);
+
 Route::resource('brief',briefController::class);
 
 

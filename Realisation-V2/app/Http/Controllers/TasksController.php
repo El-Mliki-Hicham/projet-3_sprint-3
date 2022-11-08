@@ -47,9 +47,9 @@ class TasksController
 
 
         $task = new Tasks();
-        $task->Nom_de_la_tâche = $request->task;
-        $task->Début_de_la_tâche= $request->date_debut;
-        $task->Fin_de_la_tâche= $request->date_fin ;
+        $task->Nom_de_la_tache = $request->task;
+        $task->Debut_de_la_tache= $request->date_debut;
+        $task->Fin_de_la_tache= $request->date_fin;
         $task->briefs_id= $request->id_brief ;
         $task->save();
         return redirect('brief/'.$request->id_brief.'/edit' );
@@ -93,9 +93,9 @@ class TasksController
     {
 
         $task =Tasks::find($id);
-        $task->Nom_de_la_tâche = $request->task;
-        $task->Début_de_la_tâche= $request->date_debut;
-        $task->Fin_de_la_tâche= $request->date_fin ;
+        $task->Nom_de_la_tache = $request->task;
+        $task->Debut_de_la_tache= $request->date_debut;
+        $task->Fin_de_la_tache= $request->date_fin;
         $task->save();
         return redirect('brief/'.$request->brief_id.'/edit' );
     }

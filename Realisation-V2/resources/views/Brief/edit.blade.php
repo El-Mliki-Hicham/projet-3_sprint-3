@@ -35,9 +35,9 @@
         @foreach ($task as $item )
         <tr>
             <td>{{$item->id}} </td>
-            <td>{{$item->Nom_de_la_tâche}} </td>
-            <td>{{$item->Début_de_la_tâche}}</td>
-            <td>{{$item->Fin_de_la_tâche}}</td>
+            <td>{{$item->Nom_de_la_tache}} </td>
+            <td>{{$item->Debut_de_la_tache}}</td>
+            <td>{{$item->Fin_de_la_tache}}</td>
             <td>
 
                 <a href="{{route('task.edit',$item->id)}}"><button>Edit</button></a>

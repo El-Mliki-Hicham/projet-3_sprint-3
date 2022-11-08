@@ -10,6 +10,14 @@
 <button>Update</button>
 </form>
 
+<br>
+<br>
+
+@foreach ($brief as $brief )
+
+<h2>{{$brief->Nom_du_brief}} </h2>
+@endforeach
+<br><br>
 
 <button class="btn btn-primary" ><a href="{{route('student.create',$id)}}" style="color: white">add student</a></button>
 <br>
@@ -49,3 +57,6 @@
 
 
 <button><a href="{{route('promotion.index')}} ">return</a></button>
+
+
+
