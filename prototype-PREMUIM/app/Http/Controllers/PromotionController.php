@@ -68,7 +68,6 @@ class PromotionController
     public function edit(Promotion $promotion)
     {
         $id = $promotion->id;
-
         $promotion = Promotion::find($promotion->id);
         $student =$promotion->Student;
 

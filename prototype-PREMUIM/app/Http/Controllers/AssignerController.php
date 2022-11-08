@@ -15,7 +15,7 @@ class AssignerController
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -40,7 +40,7 @@ class AssignerController
         $assigner = new assigner();
         $assigner->student_id=$request->student_id;
         $assigner->briefs_id=$request->brief_id;
-        // $assigner->promotion_id=$request->promotion_id;
+        $assigner->promotion_id=$request->promotion_id;
         $assigner->save();
         return back();
     }
