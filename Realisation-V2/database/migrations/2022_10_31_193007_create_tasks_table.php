@@ -14,11 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tasks', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string("Nom_de_la_tâche")->nullable();
-            $table->string("Début_de_la_tâche")->default("null");
-            $table->string("Fin_de_la_tâche")->default("null");
-            $table->string("briefs_id")->nullable();
+            $table->string("Début_de_la_tâche");
+            $table->string("Fin_de_la_tâche");
+            $table->string("Description");
+            $table->unsignedInteger("briefs_id");
+            $table->foreign("briefs_id")
+            ->references("id")
+            ->on('briefs')
+            ->onDelete('cascade');
         });
     }
 

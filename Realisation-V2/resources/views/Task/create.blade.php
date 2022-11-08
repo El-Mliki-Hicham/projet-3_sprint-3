@@ -5,7 +5,7 @@
      nom  task<input  name="task" type="text">
      date debut<input name="date_debut" type="date">
       dat fin<input name="date_fin" type="date">
-     <input name="id_brief" value="{{$id}} " type="text">
+     <input name="id_brief" value="{{$id}} " type="hidden">
     <button>ajouter</button>
 </form>
 
