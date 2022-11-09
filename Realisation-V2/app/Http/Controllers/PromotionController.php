@@ -67,12 +67,11 @@ class PromotionController
      */
     public function edit(Promotion $promotion)
     {
-
-        $brief = assigner::where("briefs_student.promotion_id",$promotion->id)
-         ->join("students",'briefs_student.student_id','=','students.id')
+        $brief = assigner::select("Nom_du_brief")
+        ->where("briefs_student.promotion_id",$promotion->id)
         ->join("briefs",'briefs_student.briefs_id','=','briefs.id')
-        ->select('briefs_id',"Nom_du_brief")
-        ->groupByRaw('briefs_id')
+
+        ->groupByRaw('Nom_du_brief')
         ->get();
         $id = $promotion->id;
         $promotion = Promotion::find($promotion->id);
@@ -82,7 +81,7 @@ class PromotionController
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the  resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Promotion  $promotion

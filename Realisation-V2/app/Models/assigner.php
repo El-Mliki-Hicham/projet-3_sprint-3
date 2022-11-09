@@ -18,5 +18,5 @@ class assigner extends Model
     function brief(){
         // return $this->whereBelongsTo(Briefs::class);
         return $this->hasManyThrough(Briefs::class, Student::class);
-    }
+    }   
 }
