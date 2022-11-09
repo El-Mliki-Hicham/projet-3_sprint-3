@@ -72,7 +72,11 @@ class AssignerController
 
         $AllStudent = assigner::select("*")
         ->rightJoin("students",'briefs_student.student_id',"students.id")
-        // ->where("briefs_student.briefs_id",$id)
+        // ->whereNotNull("students.id")
+        ->where([
+            ["students.id",">",0],
+            // ["briefs_student.briefs_id",$id],
+            ])
         ->get();
         // dd($AllStudent);
 

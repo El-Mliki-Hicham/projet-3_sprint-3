@@ -3,30 +3,7 @@
 <a><button>Search </button></a> --}}
 <link rel="stylesheet" href="{{asset("css/assigner.css")}}">
 
-<h1>deja assigner</h1>
-<table>
-    <tbody>
 
-
-        @foreach ($brief_student as $item )
-        <tr>
-            <td>{{$item->id}}</td>
-            <td>{{$item->First_name}} {{$item->Last_name}}</td>
-
-            <td>
-                <form action="{{route('assigner.destroy',$item->id)}}" method="post">
-                    @csrf
-                    @method("delete")
-                    <input type="hidden" value="{{$id}}" name="brief_id">
-                    <button>-</button>
-                </form>
-            </td>
-
-        </tr>
-
-        @endforeach
-    </tbody>
-</table>
 
 <h1>All student</h1>
 <table>
@@ -54,11 +31,13 @@
            <td>
 
 
-            <form action="{{route('assigner.destroy',$item->id)}}" method="post">
-                @csrf
-                @method("delete")
-                <input type="hidden" value="{{$id}}" name="brief_id">
-                <button>-</button>
+
+                <form action="{{route('assigner.destroy',$item->id)}}" method="post">
+                    @csrf
+                    @method("delete")
+                    <input type="hidden" value="{{$id}}" name="brief_id">
+                    <button>-</button>
+                </form>
             </form>
 
             <script>
