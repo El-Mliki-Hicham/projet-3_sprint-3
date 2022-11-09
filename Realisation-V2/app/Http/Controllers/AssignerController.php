@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\assigner;
 use App\Models\Briefs;
+use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule as ValidationRule;
+use Illuminate\Validation\Validator as ValidationValidator;
 
 class AssignerController
 {
@@ -36,6 +41,12 @@ class AssignerController
      */
     public function store(Request $request)
     {
+
+
+
+
+
+        // "student_id"=> 'multiple_unique:briefs_student,student_id,briefs_id',
         // dd($request->input());
         $assigner = new assigner();
         $assigner->student_id=$request->student_id;
@@ -55,8 +66,17 @@ class AssignerController
     public function show($id)
     {
 
-        $studentController =new StudentController;
-        $AllStudent = $studentController->index()->student;
+        // $studentController =new StudentController;
+        // $AllStudent = $studentController->index()->student;
+
+
+        $AllStudent = assigner::select("*")
+        ->rightJoin("students",'briefs_student.student_id',"students.id")
+        // ->where("briefs_student.briefs_id",$id)
+        ->get();
+        // dd($AllStudent);
+
+
 
         $brief_student = Briefs::find($id);
 
