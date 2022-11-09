@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\assigner;
 use App\Models\Briefs;
+use App\Models\Promotion;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session as FacadesSession;
 use Illuminate\Validation\Rule as ValidationRule;
 use Illuminate\Validation\Validator as ValidationValidator;
+use Symfony\Component\HttpFoundation\Session\Session as SessionSession;
 
 class AssignerController
 {
@@ -53,7 +57,7 @@ class AssignerController
         $assigner->briefs_id=$request->brief_id;
         $assigner->promotion_id=$request->promotion_id;
         $assigner->save();
-        return back();
+        return back()->with('key',$request->student_id);
     }
 
     /**
@@ -66,29 +70,33 @@ class AssignerController
     public function show($id)
     {
 
-        // $studentController =new StudentController;
-        // $AllStudent = $studentController->index()->student;
+        $studentController =new StudentController;
+        $StudentIndex = $studentController->index()->student;
 
 
-        $AllStudent = assigner::select("*")
+
+        $promotionId= Promotion::select('*')
+        ->latest()->take(1)->first();
+        // dd($promotionId->id);
+
+
+        $AllStudent = assigner::
+        // select("briefs_id","students.id as id_student",'student_id',"students.First_name","students.promotion_id")
+        select("*","students.id as id_s")
         ->rightJoin("students",'briefs_student.student_id',"students.id")
-        // ->whereNotNull("students.id")
-        ->where([
-            ["students.id",">",0],
-            // ["briefs_student.briefs_id",$id],
-            ])
-        ->get();
+        // ->where("students.promotion_id",$promotionId)
+        ->get() ;
         // dd($AllStudent);
 
 
 
+
+
         $brief_student = Briefs::find($id);
-
-
         $brief_student = $brief_student->Student;
         // dd($brief_student);
 
-        return view('Brief.assigner',compact("AllStudent",'brief_student',"id"));
+        return view('Brief.assigner',compact("AllStudent",'brief_student',"promotionId","StudentIndex","id"));
     }
 
     /**

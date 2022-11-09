@@ -10,10 +10,13 @@ class Promotion extends Model
 {
     use HasFactory;
    protected $fillable=[
-    'Name_promotion'
+    'Name_promotion',
+    "created_at",
+    "updated_at"
+
    ];
 
-   public $timestamps=false;
+   public $timestamps=true;
 
    public function Student(){
     return $this->hasMany(Student::class);
