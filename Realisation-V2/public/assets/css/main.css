@@ -1,0 +1,25 @@
+.input-search-briefs{
+flex-direction: row-reverse;
+display: flex;
+margin-top: -50px;
+margin-right: 12px;
+}
+.inputsearch::-webkit-input-placeholder {
+    color: red !important;
+  }
+.td-btn{
+    display: flex;
+    justify-content: space-around;
+    font-size: 25px;
+    align-items: baseline;
+}
+
+.bg-gradient-primary{
+    background-image: linear-gradient(206deg, #fb8c00 0%, #000000 100%) !important;
+}
+
+.form-control{
+    color: white !important;
+    border-color: #000000;
+}
+
