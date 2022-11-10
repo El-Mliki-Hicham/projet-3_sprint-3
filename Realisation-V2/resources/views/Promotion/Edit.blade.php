@@ -4,11 +4,13 @@
 <div class="container-fluid py-4">
 
 
-    @foreach ($brief as $brief )
 
-   <h1>Brief assigner :</h1> <h2> {{$brief->Nom_du_brief}} </h2>
-    @endforeach
-
+    <form method="POST" action="{{route("promotion.update",$promotion->id)}}">
+        @method("PUT")
+        @csrf
+    <input type="text" value="{{$promotion->Name_promotion}}" name="Name">
+    <button>Update</button>
+    </form>
 
 
     <div class="row">
@@ -18,14 +20,8 @@
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
               <h6 class="text-white text-capitalize ps-3">
 
-                <form method="POST" action="{{route("promotion.update",$promotion->id)}}">
-                    @method("PUT")
-                    @csrf
-                <input type="text" value="{{$promotion->Name_promotion}}" name="Name">
-                <button>Update</button>
-                </form>
 
-
+                <button class="btn btn-warning" ><a href="{{route('student.create',$id)}}" style="color: white">ajouter apprenant</a></button>
                 <div class="input-search-briefs">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                         <div class="input-group input-group-outline inputsearch">
@@ -66,7 +62,7 @@
                             <button class="delete" style="all: unset;cursor: pointer;color:red" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-trash"></i></button>
 
                         </form>
-                        <button class="btn btn-info" >  <a style="color: white" href="{{route('assigner.show',$item->id)}}">assigner</a></button>
+
                     </td>
 
                   </tr>

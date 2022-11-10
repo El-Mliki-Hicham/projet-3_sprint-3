@@ -22,4 +22,13 @@ margin-right: 12px;
     color: white !important;
     border-color: #000000;
 }
+.formAss{
+    width: 400px !important;
+}
+.divFormAss{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 

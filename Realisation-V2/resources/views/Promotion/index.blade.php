@@ -52,8 +52,7 @@
                             <button class="delete" style="all: unset;cursor: pointer;color:red" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-trash"></i></button>
 
                         </form>
-                        <button class="btn btn-info" >  <a style="color: white" href="{{route('assigner.show',$item->id)}}">assigner</a></button>
-                    </td>
+
 
                   </tr>
                   @endforeach
