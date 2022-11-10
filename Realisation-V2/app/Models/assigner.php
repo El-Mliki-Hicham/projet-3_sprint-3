@@ -15,8 +15,14 @@ class assigner extends Model
     public $table= "briefs_student";
     public $timestamps= false;
 
+    protected $fillable = [
+        'student_id',
+        "promotion_id",
+        'briefs_id'
+    ];
+
     function brief(){
         // return $this->whereBelongsTo(Briefs::class);
         return $this->hasManyThrough(Briefs::class, Student::class);
-    }   
+    }
 }

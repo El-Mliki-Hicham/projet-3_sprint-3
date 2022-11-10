@@ -74,6 +74,7 @@ class PromotionController
         ->groupByRaw('Nom_du_brief')
         ->get();
         $id = $promotion->id;
+        
         $promotion = Promotion::find($promotion->id);
         $student =$promotion->Student;
 

@@ -70,6 +70,14 @@ class AssignerController
     public function show($id)
     {
 
+        $students = Promotion::latest()->first()->Student;
+        $brief = Briefs::where('id', $id)->firstOrFail();
+        $assigner = array_map(function ($student) {
+            return $student['id'];
+            // dd($student)
+        }, $brief->Student->toArray());
+
+
         $studentController =new StudentController;
         $StudentIndex = $studentController->index()->student;
 
@@ -93,10 +101,10 @@ class AssignerController
 
 
         $brief_student = Briefs::find($id);
-        $brief_student = $brief_student->Student;
+        $brief_student = $brief_student->Student->find($id);
         // dd($brief_student);
 
-        return view('Brief.assigner',compact("AllStudent",'brief_student',"promotionId","StudentIndex","id"));
+        return view('Brief.assigner',compact("AllStudent",'brief_student',"promotionId","StudentIndex","id","assigner","students","brief"));
     }
 
     /**
@@ -136,6 +144,23 @@ class AssignerController
             ['briefs_id',$brief_id]
         ])
         ->delete();
+        return back();
+    }
+
+    public function assignerAll()
+    {
+        $students = Promotion::latest()->first()->Student;
+
+        foreach ($students as $student) {
+
+            if (is_null(Briefs::find(request()->id)->Student()->find($student->id))) {
+                assigner::create([
+                    'student_id' => $student->id,
+                    'briefs_id' => request()->id,
+                    'promotion_id' => $student->promotion_id,
+                ]);
+            }
+        };
         return back();
     }
 }

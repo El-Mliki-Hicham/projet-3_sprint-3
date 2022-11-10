@@ -31,6 +31,7 @@ Route::resource('brief',briefController::class);
 // Route::resource('student',StudentController::class);
 
 Route::resource('assigner',AssignerController::class);
+Route::get('/assignerAll',[AssignerController::class,'assignerAll'])->name('assigner.All');
 
 
 Route::resource('promotion',PromotionController::class);
