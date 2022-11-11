@@ -25,8 +25,9 @@
                 <div class="input-search-briefs">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                         <div class="input-group input-group-outline inputsearch">
-                          <label class="form-label">Type here...</label>
-                          <input type="text" class="form-control">
+                          <label class="form-label"  style="color: white">Search</label>
+                          <input type="text" id="search" class="form-control">
+                          <input type="hidden" value="{{$promotion->id}} " id="searchID" class="form-control">
                         </div>
                       </div>
               </div>
@@ -46,7 +47,7 @@
 
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                     @foreach ($student as $item )
         <tr>
             <td>{{$item->id}}</td>
@@ -82,5 +83,6 @@
 
   </div>
 
+  <script src="{{asset('assets/js/searchStudent.js')}}"></script>
 
     @endsection

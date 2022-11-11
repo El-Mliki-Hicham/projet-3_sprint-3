@@ -6,9 +6,11 @@ use App\Models\assigner;
 use App\Models\Briefs;
 use App\Models\Promotion;
 use App\Models\Student;
+use BaseConttroller;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
-class PromotionController
+class PromotionController extends BaseConttroller
 {
     /**
      * Display a listing of the resource.
@@ -67,6 +69,8 @@ class PromotionController
      */
     public function edit(Promotion $promotion)
     {
+
+
         $brief = assigner::select("Nom_du_brief")
         ->where("briefs_student.promotion_id",$promotion->id)
         ->join("briefs",'briefs_student.briefs_id','=','briefs.id')
@@ -74,7 +78,7 @@ class PromotionController
         ->groupByRaw('Nom_du_brief')
         ->get();
         $id = $promotion->id;
-        
+
         $promotion = Promotion::find($promotion->id);
         $student =$promotion->Student;
 

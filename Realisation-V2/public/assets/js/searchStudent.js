@@ -4,12 +4,12 @@
 
     $value=$(this).val();
     $.ajax({
-    type : 'get',
-    url :  "../searchStudent/"+$id,
-    // url : '{{URL::to('search')}}',
-    data:{'key':$value},
-    success:function(data){
-    $('#tbody').html(data);
-    }
+        type : 'get',
+        url :  "../../searchStudent/".id,
+        // url : '{{URL::to('search')}}',
+        data:{'key':$value},
+        success:function(data){
+            $('#tbody').html(data);
+        }
     });
     })
