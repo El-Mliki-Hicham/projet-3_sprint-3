@@ -1,10 +1,48 @@
-<form action="{{route("brief.store")}}" method="post">
-    @csrf
-     nom brief<input name="Nom" type="text">
-     nom brief<input name="Date_livraison" type="date">
-     nom brief<input name="Date_recuperation" type="date">
-    <button>ajouter</button>
-</form>
+@extends('Master')
+@section('content')
+
+<div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Ajouter Brief </h5>
+        </div>
+        <div class="card-body">
+            <form action="{{route("brief.store")}}" method="post">
+                @csrf
+            <div class="row">
+              <div class="col-md-5 pr-md-1">
+                <div class="form-group">
+                  <label>Nom Brief</label>
+                  <input type="text" class="form-control" placeholder="nom " name="Nom" >
+                </div>
+              </div>
 
 
-<a href="{{route("brief.index")}}"><button>return</button></a>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Date/Heure de livraison</label>
+                  <input type="datetime-local" class="form-control" name="Date_livraison" >
+                </div>
+              </div>
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <label>Date/Heure de récupération </label>
+                  <input type="datetime-local" class="form-control"  name="Date_recuperation">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-warning">Ajouter</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+</div>
+<button href="{{route("brief.index")}}"class="btn btn-secondary">Return</button>
+  @endsection
+

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AssignerController;
 use App\Http\Controllers\briefController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TasksController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,14 @@ Route::get('/', function () {
 Route::get('/test',[PromotionController::class,'edit']);
 
 Route::resource('brief',briefController::class);
+
+
+// session controller
+Route::post('sessionDelete',[SessionController::class,'sessionDelete']);
+
+// search controller
+Route::get('search',[SearchController::class,'search']);
+Route::get('searchStudent/{id}',[SearchController::class,'searchStudent']);
 
 
 // Route::resource('student',StudentController::class);

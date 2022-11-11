@@ -11,12 +11,12 @@
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
               <h6 class="text-white text-capitalize ps-3">
                   <a href="{{route("brief.create")}}">
-                    <button class="btn btn-warning">ajouter brief</button>
+                    <button class='btn btn-outline-light'>ajouter brief</button>
                 </a>
                 <div class="input-search-briefs">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                         <div class="input-group input-group-outline inputsearch">
-                          <label class="form-label">Type here...</label>
+                            <label class="form-label" style="color: white">Search</label>
                           <input type="text" class="form-control">
                         </div>
                       </div>
