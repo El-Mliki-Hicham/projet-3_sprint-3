@@ -96,8 +96,24 @@ function showForm(){
     title.style.display = "none"
 
 }
+
+$('#search').on('keyup',function(){
+        $id= $("#searchID").val();
+
+    $value=$(this).val();
+    $.ajax({
+        type : 'get',
+        // url :  "../../searchStudent"+$id,
+        url : '{{URL::to('searchStudent/'.$id)}}',
+        data:{'key':$value},
+        success:function(data){
+            $('#tbody').html(data);
+        }
+    });
+    })
+
   </script>
 
-  <script src="{{asset('assets/js/searchStudent.js')}}"></script>
+  {{-- <script src="{{asset('assets/js/searchStudent.js')}}"></script> --}}
 
     @endsection

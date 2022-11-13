@@ -5,7 +5,7 @@
     $value=$(this).val();
     $.ajax({
         type : 'get',
-        url :  "../../searchStudent/".id,
+        url :  "../../searchStudent"+$id,
         // url : '{{URL::to('search')}}',
         data:{'key':$value},
         success:function(data){
