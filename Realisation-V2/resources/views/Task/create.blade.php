@@ -5,7 +5,7 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-header">
-          <h5 class="title">Add Tache</h5>
+          <h5 class="title">Ajouter tache</h5>
         </div>
         <div class="card-body">
             <form action="{{route("task.store")}}" method="post">
@@ -24,27 +24,28 @@
               <div class="col-md-6 pr-md-1">
                 <div class="form-group">
                   <label>Début de la Tache</label>
-                  <input type="datetime-local" class="form-control" name="date_fin">
+                  <input type="datetime-local" class="form-control" name="date_debut">
                 </div>
               </div>
               <div class="col-md-6 pl-md-1">
                 <div class="form-group">
                   <label>Fin de la Tache</label>
-                  <input type="datetime-local" class="form-control" name="fin_tache">
+                  <input type="datetime-local" class="form-control" name="date_fin">
                 </div>
               </div>
               <input name="id_brief" value="{{$id}} " type="hidden">
             </div>
             <div class="card-footer">
-              <button type="submit" class="btn btn-warning">Ajouter</button>
+              <button type="submit" class="btn btn-info">Ajouter</button>
             </div>
           </form>
         </div>
       </div>
-
-      <button href="{{route("brief.edit",$id)}}" class="btn btn-secondary">return</button>
+      <br>
+       <a href="{{route("brief.edit",$id)}}" class='btn btn-outline-dark'>return</a>
     </div>
 </div>
+
 @endsection
 
 

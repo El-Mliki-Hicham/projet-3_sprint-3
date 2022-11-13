@@ -112,6 +112,6 @@ class TasksController
         Tasks::find($id)
         ->delete();
 
-        return redirect('brief/'.$brief_id.'/edit' );
+        return back();
     }
 }
