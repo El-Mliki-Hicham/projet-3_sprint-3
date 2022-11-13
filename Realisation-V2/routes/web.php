@@ -55,6 +55,7 @@ Route::get('search',[SearchController::class,'search'])->name("promotion.search"
 
 
 Route::resource('task',TasksController::class);
+Route::get('searchTasks/{id}',[TasksController::class,'searchTasks'])->name('task.search');
 
 
 // student controller

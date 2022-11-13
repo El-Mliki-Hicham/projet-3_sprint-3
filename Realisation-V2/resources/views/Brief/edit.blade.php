@@ -14,11 +14,6 @@
 </div>
 </div>
 
-
-
-
-
-
     <div class="row">
       <div class="col-12">
         <div class="card my-4">
@@ -33,8 +28,9 @@
                     <div class="input-search-briefs">
                         <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                             <div   style="margin-top: -22px;" class="input-group input-group-outline inputsearch">
-                                <label class="form-label" style="color: white">Search</label>
-                              <input type="text" id="search" class="form-control form-color">
+                                <label class="form-label"  style="color: white">Search</label>
+                          <input type="text" id="search" class="form-control form-color">
+                          <input type="hidden" value="{{$brief->id}} " id="searchID" class="form-control">
                             </div>
                           </div>
                   </div>
@@ -53,7 +49,7 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">action</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                     @foreach ($task as $item )
                     <tr>
                         <td>{{$item->id}} </td>
@@ -103,6 +99,23 @@
 
 
   }
+
+
+$('#search').on('keyup',function(){
+        $id= $("#searchID").val();
+
+    $value=$(this).val();
+    $.ajax({
+        type : 'get',
+        // url :  "../../searchStudent"+$id,
+        url : '{{URL::to('searchTasks/'.$id)}}',
+        data:{'key':$value},
+        success:function(data){
+            $('#tbody').html(data);
+        }
+    });
+    })
+
 
 </script>
 
