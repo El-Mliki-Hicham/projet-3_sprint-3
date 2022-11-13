@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AssignerController;
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\briefController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\SearchController;
@@ -29,15 +30,15 @@ Route::get('/', function () {
 
 Route::get('/test',[PromotionController::class,'edit']);
 
+
+
 Route::resource('brief',briefController::class);
 
 
-// session controller
-Route::post('sessionDelete',[SessionController::class,'sessionDelete']);
+// Base controller
+Route::post('sessionDelete',[BaseController::class,'sessionDelete']);
 
-// search controller
-Route::get('search',[SearchController::class,'search']);
-Route::get('searchStudent/{id}',[SearchController::class,'searchStudent']);
+
 
 
 // Route::resource('student',StudentController::class);
@@ -47,6 +48,11 @@ Route::get('/assignerAll',[AssignerController::class,'assignerAll'])->name('assi
 
 
 Route::resource('promotion',PromotionController::class);
+Route::get('search',[SearchController::class,'search'])->name("promotion.search");
+
+
+
+
 Route::resource('task',TasksController::class);
 
 
@@ -57,3 +63,5 @@ Route::post('/student/store',[StudentController::class,'store'])->name('student.
 Route::get('/student/Edit/{id}',[StudentController::class,'edit'])->name('student.edit');
 Route::put('/student/update/{id}',[StudentController::class,'update'])->name('student.update');
 Route::delete('/student/Delete/{id}',[StudentController::class,'destroy'])->name('student.destroy');
+
+Route::get('searchStudent/{id}',[StudentController::class,'searchStudent']);

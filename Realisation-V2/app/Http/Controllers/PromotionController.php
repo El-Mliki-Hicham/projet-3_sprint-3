@@ -45,7 +45,7 @@ class PromotionController {
         $promotion->Name_promotion =$request->Name;
         $promotion->save();
         if ($promotion->save()) {
-            return redirect("promotion");
+            return redirect("promotion")->with("status","Promotion a été ajouter");
         }
     }
 
@@ -114,4 +114,37 @@ class PromotionController {
         Promotion::find($promotion->id)->delete();
         return back();
     }
+
+    public function search(Request $request){
+
+        if($request->ajax()){
+            $input = $request->key;
+            $output="";
+            $Promotion=Promotion::where('Name_promotion','like',$input."%")
+            ->orWhere('id','like','%'.$input."%")
+        ->get();
+        if($Promotion)
+        {
+        foreach ($Promotion as $promotion) {
+            $output.='<tr>
+
+              <td>'.$promotion->id.'</td>
+              <td><a href="'.route('promotion.edit',$promotion->id).'">'.$promotion->Name_promotion.'</a></td>
+              <td class="td-btn" >
+
+              <form action="'.route('promotion.destroy',$promotion->id).'" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="hidden" name="_token" value="mbwRek5RvSWri9jAlOBQGv7ev7YyyUaKpf07ioez">
+              <button class="delete" style="all: unset;cursor: pointer;color:red" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-trash"></i></button>
+
+              </form>
+
+              </td>
+              </tr>';
+            }
+
+            return Response($output);
+        }
+    }
+}
 }

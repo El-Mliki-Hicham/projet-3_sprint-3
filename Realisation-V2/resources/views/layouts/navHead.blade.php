@@ -1,12 +1,14 @@
-<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
-    <div class="container-fluid py-1 px-3">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-          <h2>
 
-          </h2>
-        </ol>
-      </nav>
 
+
+
+@if (session('status'))
+      <div class="alert alert-success alert-dismissible text-white" role="alert">
+        <span class="text-sm">{{ session('status')}}</span>
+
+        <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+
+        </button>
     </div>
-  </nav>
+    @endif
