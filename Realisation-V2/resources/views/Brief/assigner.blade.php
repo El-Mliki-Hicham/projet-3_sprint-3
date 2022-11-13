@@ -4,12 +4,12 @@
 @extends("Master")
 @section("content")
 <div class="divFormAss">
-    <a href="{{route('assigner.All',['id' => $id])}}"><button class="btn btn-success">Assigner touts</button></a>
+    <a style="margin-top: 12px" href="{{route('assigner.All',$id)}}"><button class="btn btn-success">Assigner tous</button></a>
 </div>
 
+<div>
 @foreach ($students as $value)
 @if (!in_array($value->id, $assigner))
-
 
 <div class="divFormAss">
     <div class="col-md-12 mb-lg-0 mb-4 formAss" >
@@ -29,7 +29,7 @@
                 <input type="hidden" value="{{$id}}" name="brief_id">
 
 
-                <button class="btn btn-warning">+</button>
+                <button class="btn btn-info">+</button>
             </form>
         </div>
         <div class="card-body p-3">
@@ -86,9 +86,10 @@
 </div>
 </div>
 </div>
+
 @endif
 @endforeach
-
+</div>
 
 <a href="{{route("brief.index")}}"><button>return</button></a>
 

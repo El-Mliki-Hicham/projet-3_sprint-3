@@ -12,8 +12,10 @@
     <input type="hidden" id="input" value="{{$promotion->Name_promotion}}" name="Name">
     <input type="hidden" id="btn" value="Update">
     </form>
-
-
+   <h3> Briefs assignés :</h3>
+    @foreach ($brief as $valueBrief)
+    <h4 style="color: rgb(7, 8, 12)" > - {{$valueBrief->Nom_du_brief}}</h4>
+    @endforeach
     <div class="row">
       <div class="col-12">
         <div class="card my-4">

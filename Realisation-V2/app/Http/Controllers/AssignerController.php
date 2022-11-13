@@ -147,16 +147,16 @@ class AssignerController
         return back();
     }
 
-    public function assignerAll()
+    public function assignerAll($id)
     {
         $students = Promotion::latest()->first()->Student;
 
         foreach ($students as $student) {
 
-            if (is_null(Briefs::find(request()->id)->Student()->find($student->id))) {
+            if (is_null(Briefs::find($id)->Student()->find($student->id))) {
                 assigner::create([
                     'student_id' => $student->id,
-                    'briefs_id' => request()->id,
+                    'briefs_id' => $id,
                     'promotion_id' => $student->promotion_id,
                 ]);
             }
