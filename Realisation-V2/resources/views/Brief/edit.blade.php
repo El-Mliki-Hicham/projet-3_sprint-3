@@ -1,16 +1,17 @@
 @extends("Master")
 @section('content')
-
+    <div class="divFormEdit">
     <h2 id="title" onclick="showForm()">{{$brief->Nom_du_brief}}</h2>
 <div id="div" >
 <form action="{{route("brief.update",$brief->id)}}" method="post">
     @method("PUT")
     @csrf
      nom brief<input value="{{$brief->Nom_du_brief}}" name="Nom" type="text">
-     nom brief<input  value="{{$brief->Date_heure_de_livraison}}"  name="Date_livraison" type="date">
-     nom brief<input  value="{{$brief->Date_heure_de_récupération}}"  name="Date_recuperation" type="date">
+     Date livraison<input  value="{{$brief->Date_heure_de_livraison}}"  name="Date_livraison" type="date">
+     Date de récupération<input  value="{{$brief->Date_heure_de_récupération}}"  name="Date_recuperation" type="date">
     <button>edit</button>
 </form>
+</div>
 </div>
 
 
@@ -21,27 +22,25 @@
     <div class="row">
       <div class="col-12">
         <div class="card my-4">
-          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-              <h6 class="text-white text-capitalize ps-3">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                  <h6 class="text-white text-capitalize ps-3">
+                    <form action="{{route('task.create')}}" method="get">
+                        <input style="all: unset;cursor: pointer;color:red" name="brief_id" value="{{$brief->id}}" type="hidden">
 
-                <form action="{{route('task.create')}}" method="get">
-                    <input style="all: unset;cursor: pointer;color:red" name="brief_id" value="{{$brief->id}}" type="hidden">
-
-                    <button class="btn btn-warning">Ajouter tache</button>
-                </form>
-
-                <div class="input-search-briefs">
-                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group input-group-outline inputsearch">
-                          <label class="form-label">Type here...</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
+                        <button class='btn btn-outline-light'>Ajouter tache</button>
+                    </form>
+                    <div class="input-search-briefs">
+                        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                            <div   style="margin-top: -22px;" class="input-group input-group-outline inputsearch">
+                                <label class="form-label" style="color: white">Search</label>
+                              <input type="text" id="search" class="form-control form-color">
+                            </div>
+                          </div>
+                  </div>
+                  </h6>
+                </div>
               </div>
-              </h6>
-            </div>
-          </div>
           <div class="card-body px-0 pb-2">
             <div class="table-responsive p-0">
               <table class="table align-items-center justify-content-center mb-0">

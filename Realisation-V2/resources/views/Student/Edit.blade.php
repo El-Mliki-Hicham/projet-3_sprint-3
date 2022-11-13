@@ -16,13 +16,13 @@
                 <div class="row">
                   <div class="col-md-5 pr-md-1">
                     <div class="form-group">
-                      <label>Nom </label>
+                      <label>Prenom </label>
                       <input type="text" class="form-control" placeholder="nom " value="{{$student->First_name}}" name="First_name">
                     </div>
                   </div>
                   <div class="col-md-5 pr-md-1">
                     <div class="form-group">
-                      <label>Prenom </label>
+                      <label>Nom </label>
                       <input type="text" class="form-control" value="{{$student->Last_name}}" name="Last_name">
                     </div>
                   </div>

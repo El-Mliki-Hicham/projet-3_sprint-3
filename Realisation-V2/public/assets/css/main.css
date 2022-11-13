@@ -20,7 +20,11 @@ margin-right: 12px;
 }
 
 .form-control{
-    color: rgb(254 254 254) !important;
+    color: black !important;
+    border-color: #000000;
+}
+.form-color{
+    color: rgb(255, 255, 255) !important;
     border-color: #000000;
 }
 .formAss{
@@ -33,7 +37,17 @@ margin-right: 12px;
 }
 
 .editForm{
+    margin-top:20px !important;
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+.sessionDiv{
+    width: 943px;
+    margin: 23px;
+}
+.divFormEdit{
+    margin:30px;
+
 }

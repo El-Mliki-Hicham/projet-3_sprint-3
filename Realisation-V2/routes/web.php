@@ -33,6 +33,7 @@ Route::get('/test',[PromotionController::class,'edit']);
 
 
 Route::resource('brief',briefController::class);
+Route::get('searchBrief',[briefController::class,'search'])->name("brief.search");
 
 
 // Base controller

@@ -36,12 +36,12 @@
             </div>
           </div>
           <div class="card-footer">
-            <button type="submit" class="btn btn-warning">Ajouter</button>
+            <button type="submit" class="btn btn-info">Ajouter</button>
           </div>
         </form>
       </div>
       <br>
-      <button  href="{{route("brief.index")}}"class="btn btn-outline-dark">Return</button>
+      <a  href="{{route("brief.index")}}"class="btn btn-outline-dark">Return</a>
     </div>
 
 </div>

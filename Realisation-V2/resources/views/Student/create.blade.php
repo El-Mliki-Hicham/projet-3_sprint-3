@@ -40,7 +40,7 @@
               <input type="hidden" value="{{$id}}" name="promotion_id">
             </div>
             <div class="card-footer">
-              <button type="submit" class="btn btn-warning">Add</button>
+              <button type="submit" class="btn btn-info">Ajouter</button>
             </div>
           </form>
         </div>

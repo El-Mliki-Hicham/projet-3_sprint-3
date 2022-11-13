@@ -17,7 +17,7 @@
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                         <div class="input-group input-group-outline inputsearch">
                             <label class="form-label" style="color: white">Search</label>
-                          <input type="text" class="form-control">
+                          <input type="text" id="search" class="form-control form-color">
                         </div>
                       </div>
               </div>
@@ -30,21 +30,21 @@
                 <thead>
                   <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">id</th>
-                    <th class="text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7"> Nom de la tâche</th>
-                    <th class="text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7">Début de la tâche</th>
-                    <th class="text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7">Fin_de la tâche</th>
+                    <th class="text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7">Nom du brief</th>
+                    <th class="text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7">Date heure de livraison</th>
+                    <th class="text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7">Date heure de récupération</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">action</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                     @foreach ($brief as $item )
                   <tr>
                     <td>{{$item->id}} </td>
-                    <td>{{$item->Nom_du_brief}} </td>
+                    <td><a href="{{route('brief.edit',$item->id)}}">{{$item->Nom_du_brief}}</a></td>
+
                     <td>{{$item->Date_heure_de_livraison}}</td>
                     <td>{{$item->Date_heure_de_récupération}}</td>
                     <td class="td-btn" >
-                        <a href="{{route('brief.edit',$item->id)}}" class="" style="color: green" title="Edit"><i class="fa-regular fa-pen-to-square"></i></a>
 
                         <form action="{{route('brief.destroy',$item->id)}}" method="POST">
                             @method("DELETE")
@@ -52,6 +52,13 @@
                             <button class="delete" style="all: unset;cursor: pointer;color:red" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-trash"></i></button>
 
                         </form>
+                        <form action="{{route('task.create')}}" method="get">
+                            <input style="all: unset;cursor: pointer;color:red" name="brief_id" value="{{$item->id}}" type="hidden">
+
+                            <button class="" style="all: unset;cursor: pointer; color: rgb(250, 168, 61)" title="Add tasks"><i class="fa-solid fa-tasks"></i></button>
+                        </form>
+
+
                         <button class="btn btn-info" >  <a style="color: white" href="{{route('assigner.show',$item->id)}}">assigner</a></button>
                     </td>
 
@@ -70,6 +77,22 @@
 
 
   </div>
+<script>
 
+
+$('#search').on('keyup',function(){
+    $value=$(this).val();
+    $.ajax({
+    type : 'get',
+    url : 'searchBrief',
+    // url : '{{URL::to('search')}}',
+    data:{'key':$value},
+    success:function(data){
+    $('#tbody').html(data);
+    }
+    });
+    })
+
+</script>
 
     @endsection

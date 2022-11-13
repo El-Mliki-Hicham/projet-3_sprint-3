@@ -98,7 +98,7 @@ class PromotionController {
         ->update([
             'Name_promotion'=>$request->Name
         ]);
-        return back();
+        return back()->with("status","Promotion a été modifier");
 
 
     }
@@ -112,7 +112,7 @@ class PromotionController {
     public function destroy(Promotion $promotion)
     {
         Promotion::find($promotion->id)->delete();
-        return back();
+        return back()->with("status","Promotion a été supprimer");
     }
 
     public function search(Request $request){

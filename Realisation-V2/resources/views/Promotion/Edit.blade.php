@@ -26,7 +26,7 @@
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                         <div class="input-group input-group-outline inputsearch">
                           <label class="form-label"  style="color: white">Search</label>
-                          <input type="text" id="search" class="form-control">
+                          <input type="text" id="search" class="form-control form-color">
                           <input type="hidden" value="{{$promotion->id}} " id="searchID" class="form-control">
                         </div>
                       </div>
@@ -40,8 +40,8 @@
                 <thead>
                   <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">First name</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Last name</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Prenom</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Action</th>
 

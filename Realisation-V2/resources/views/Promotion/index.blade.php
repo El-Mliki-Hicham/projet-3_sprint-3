@@ -21,7 +21,7 @@
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                         <div class="input-group input-group-outline inputsearch">
                           <label class="form-label" style="color:  white" >Search</label>
-                          <input type="text" id="search" class="form-control">
+                          <input type="text" id="search" class="form-control form-color">
                         </div>
                       </div>
               </div>
