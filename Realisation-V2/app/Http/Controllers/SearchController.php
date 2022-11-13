@@ -59,15 +59,15 @@ class SearchController
             ])
         ->orWhere([
             ["promotion_id", '=', $id],
-            ['First_name','like','%'.$input."%"]
+            ['First_name','like','%'.$input]
             ])
         ->orWhere([
             ["promotion_id", '=', $id],
-            ['Last_name','like','%'.$input."%"]
+            ['Last_name','like','%'.$input]
             ])
         ->orWhere([
             ["promotion_id", '=', $id],
-            ['Email','like','%'.$input."%"]
+            ['Email','like','%'.$input]
             ])
             ->join("promotions","students.promotion_id","=","promotions.id")->get();
 
