@@ -7,7 +7,7 @@
 
 <div class="container-fluid py-4">
 
-<div class="row">
+<div class="row editForm">
     <div class="col-md-8">
       <div class="card">
 

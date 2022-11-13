@@ -6,6 +6,7 @@ margin-right: 12px;
 }
 .inputsearch::-webkit-input-placeholder {
     color: red !important;
+
   }
 .td-btn{
     display: flex;
@@ -31,4 +32,8 @@ margin-right: 12px;
     align-items: center;
 }
 
-
+.editForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

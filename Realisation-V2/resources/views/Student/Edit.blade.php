@@ -4,7 +4,7 @@
 
 <div class="container-fluid py-4">
 
-    <div class="row">
+    <div class="row editForm">
         <div class="col-md-8">
           <div class="card">
 
@@ -40,10 +40,12 @@
                 </div>
             </div>
             <div class="card-footer">
-              <button type="submit" class="btn btn-warning">Editer</button>
+              <button type="submit" class="btn btn-success">Editer</button>
             </div>
           </form>
 
         </div>
+        <br>
+        <a href="{{route('promotion.edit',$student->promotion_id)}} "><button class="btn btn-outline-dark">Return</button></a>
 
         @endsection

@@ -2,7 +2,7 @@
 @section('content')
 
 
-<div class="row">
+<div class="row editForm">
     <div class="col-md-8">
       <div class="card">
         <div class="card-header">
@@ -42,7 +42,8 @@
           </form>
         </div>
     </div>
-    <button href="{{route("brief.edit",$brief_id)}}" class="btn btn-secondary">return</button>
+    <br>
+    <a href="{{route("brief.edit",$brief_id)}}" class="btn btn-outline-dark">return</a>
     </div>
 
     @endsection

@@ -1,13 +1,17 @@
 @extends("Master")
 @section('content')
+
+    <h2 id="title" onclick="showForm()">{{$brief->Nom_du_brief}}</h2>
+<div id="div" >
 <form action="{{route("brief.update",$brief->id)}}" method="post">
     @method("PUT")
     @csrf
      nom brief<input value="{{$brief->Nom_du_brief}}" name="Nom" type="text">
      nom brief<input  value="{{$brief->Date_heure_de_livraison}}"  name="Date_livraison" type="date">
      nom brief<input  value="{{$brief->Date_heure_de_récupération}}"  name="Date_recuperation" type="date">
-    <button>ajouter</button>
+    <button>edit</button>
 </form>
+</div>
 
 
 
@@ -82,10 +86,25 @@
     </div>
 </div>
 </div>
-<a href="{{route("brief.index")}}"><button class="btn btn-secondary">return</button></a>
+<a href="{{route("brief.index")}}"><button class="btn btn-outline-dark">return</button></a>
 
 
   </div>
+  <script>
 
+  let title = document.querySelector('#title');
+  let div = document.querySelector('#div');
+
+  div.style.display = "none"
+
+  function showForm(){
+
+      title.style.display = "none"
+      div.style.display = "inline"
+
+
+  }
+
+</script>
 
     @endsection

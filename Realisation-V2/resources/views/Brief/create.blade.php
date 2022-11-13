@@ -1,7 +1,7 @@
 @extends('Master')
 @section('content')
 
-<div class="row">
+<div class="row editForm">
     <div class="col-md-8">
       <div class="card">
         <div class="card-header">
@@ -40,9 +40,10 @@
           </div>
         </form>
       </div>
+      <br>
+      <button  href="{{route("brief.index")}}"class="btn btn-outline-dark">Return</button>
     </div>
 
 </div>
-<button href="{{route("brief.index")}}"class="btn btn-secondary">Return</button>
   @endsection
 
