@@ -15,7 +15,7 @@ margin-right: 12px;
 }
 
 .bg-gradient-primary{
-    background-image: linear-gradient(206deg, #344767 0%, #000000 100%) !important;
+    background-image: linear-gradient(206deg, black 0%, #000000 100%) !important;
 }
 
 .form-control{

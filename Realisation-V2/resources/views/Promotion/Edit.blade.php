@@ -4,12 +4,13 @@
 <div class="container-fluid py-4">
 
 
+        <h2 id="title" onclick="showForm()">{{$promotion->Name_promotion}}</h2>
 
-    <form method="POST" action="{{route("promotion.update",$promotion->id)}}">
+    <form method="POST"  action="{{route("promotion.update",$promotion->id)}}">
         @method("PUT")
         @csrf
-    <input type="text" value="{{$promotion->Name_promotion}}" name="Name">
-    <button>Update</button>
+    <input type="hidden" id="input" value="{{$promotion->Name_promotion}}" name="Name">
+    <input type="hidden" id="btn" value="Update">
     </form>
 
 
@@ -20,8 +21,7 @@
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
               <h6 class="text-white text-capitalize ps-3">
 
-
-                <button class="btn btn-warning" ><a href="{{route('student.create',$id)}}" style="color: white">ajouter apprenant</a></button>
+                <a href="{{route('student.create',$id)}}"><button class="btn btn-outline-light">ajouter apprenant</button></a>
                 <div class="input-search-briefs">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                         <div class="input-group input-group-outline inputsearch">
@@ -73,15 +73,30 @@
 
                 </tbody>
               </table>
-              <button><a href="{{route('promotion.index')}} ">return</a></button>
             </div>
-          </div>
         </div>
-      </div>
     </div>
+</div>
+</div>
+<a href="{{route('promotion.index')}} "><button class="btn btn-outline-dark">Return</button></a>
 
 
   </div>
+  <script>
+  let input = document.querySelector('#input');
+let title = document.querySelector('#title');
+let btn = document.querySelector('#btn');
+
+
+
+function showForm(){
+    input.setAttribute("type", "text");
+    btn.setAttribute("type", "submit");
+
+    title.style.display = "none"
+
+}
+  </script>
 
   <script src="{{asset('assets/js/searchStudent.js')}}"></script>
 

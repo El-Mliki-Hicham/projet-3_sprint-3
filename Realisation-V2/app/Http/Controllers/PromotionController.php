@@ -10,8 +10,7 @@ use BaseConttroller;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class PromotionController extends BaseConttroller
-{
+class PromotionController {
     /**
      * Display a listing of the resource.
      *
