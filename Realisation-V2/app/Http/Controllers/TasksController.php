@@ -52,7 +52,7 @@ class TasksController
         $task->Fin_de_la_tache= $request->date_fin;
         $task->briefs_id= $request->id_brief ;
         $task->save();
-        return redirect('brief/'.$request->id_brief.'/edit' );
+        return redirect('brief/'.$request->id_brief.'/edit' )->with("status","Tache a été ajouter");
     }
 
     /**
@@ -97,7 +97,7 @@ class TasksController
         $task->Debut_de_la_tache= $request->date_debut;
         $task->Fin_de_la_tache= $request->date_fin;
         $task->save();
-        return redirect('brief/'.$request->brief_id.'/edit' );
+        return redirect('brief/'.$request->brief_id.'/edit' )->with("status","Tache a été modifer");
     }
 
     /**
@@ -112,6 +112,6 @@ class TasksController
         Tasks::find($id)
         ->delete();
 
-        return back();
+        return back()->with("status","Tache a été supprimer");
     }
 }

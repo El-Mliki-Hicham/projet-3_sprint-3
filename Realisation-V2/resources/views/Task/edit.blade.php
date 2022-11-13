@@ -6,7 +6,7 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-header">
-          <h5 class="title">Add Tache</h5>
+          <h5 class="title">Editer Tache</h5>
         </div>
         <div class="card-body">
             <form action="{{route("task.update",$task->id)}}" method="post">
@@ -37,7 +37,7 @@
               </div>
             </div>
             <div class="card-footer">
-              <button type="submit" class="btn btn-warning">Editer</button>
+              <button type="submit" class="btn btn-success">Editer</button>
             </div>
           </form>
         </div>
