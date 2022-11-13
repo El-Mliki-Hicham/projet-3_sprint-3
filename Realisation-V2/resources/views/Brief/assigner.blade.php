@@ -91,6 +91,6 @@
 @endforeach
 </div>
 
-<a href="{{route("brief.index")}}"><button>return</button></a>
+<a class="btn btn-outline-dark" href="{{route("brief.index")}}">return</a>
 
         @endsection
