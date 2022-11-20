@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('promotions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('Name_promotion')->nullable();
+            $table->timestamps();
 
         });
     }

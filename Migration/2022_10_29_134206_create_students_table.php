@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
-            $table->string("First_name");
-            $table->string("Last_name");
-            $table->string("Email");
-            $table->unsignedInteger("promotions_id");
-            $table->foreign("promotions_id")
+            $table->string("First_name")->nullable();
+            $table->string("Last_name")->nullable();
+            $table->string("Email")->nullable();
+            $table->unsignedInteger("promotion_id")->nullable();
+            $table->foreign("promotion_id")
             ->references("id")
             ->on('promotions')
             ->onDelete('cascade');
