@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('promotions', function (Blueprint $table) {
-            $table->id();
-            $table->string('Name_promotion');
+            $table->increments('id');
+            $table->string('Name_promotion')->nullable();
+
         });
     }
 
